@@ -1,0 +1,67 @@
+<%= form_with(model: vinyl, local: true) do |form| %>
+  <% if vinyl.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(vinyl.errors.count, "error") %> prohibited this vinyl from being saved:</h2>
+
+      <ul>
+      <% vinyl.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :artist %>
+    <%= form.text_field :artist, id: :vinyl_artist %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :vinyl_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :genre %>
+    <%= form.text_field :genre, id: :vinyl_genre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :release_date %>
+    <%= form.date_select :release_date, id: :vinyl_release_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :label %>
+    <%= form.text_field :label, id: :vinyl_label %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :vinyl_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tracklist %>
+    <%= form.text_area :tracklist, id: :vinyl_tracklist %>
+  </div>
+
+  <div class="field">
+    <%= form.label :album %>
+    <%= form.check_box :album, id: :vinyl_album %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image_url %>
+    <%= form.text_field :image_url, id: :vinyl_image_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, id: :vinyl_price %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

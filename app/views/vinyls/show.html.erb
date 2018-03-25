@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Artist:</strong>
+  <%= @vinyl.artist %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @vinyl.title %>
+</p>
+
+<p>
+  <strong>Genre:</strong>
+  <%= @vinyl.genre %>
+</p>
+
+<p>
+  <strong>Release date:</strong>
+  <%= @vinyl.release_date %>
+</p>
+
+<p>
+  <strong>Label:</strong>
+  <%= @vinyl.label %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @vinyl.description %>
+</p>
+
+<p>
+  <strong>Tracklist:</strong>
+  <%= @vinyl.tracklist %>
+</p>
+
+<p>
+  <strong>Album:</strong>
+  <%= @vinyl.album %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @vinyl.image_url %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @vinyl.price %>
+</p>
+
+<%= link_to 'Edit', edit_vinyl_path(@vinyl) %> |
+<%= link_to 'Back', vinyls_path %>
