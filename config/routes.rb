@@ -14,6 +14,12 @@ Rails.application.routes.draw do
   get '/login', to: 'user#login'
   
   get '/logout', to: 'user#logout'
+  
+  get '/cart/clear', to: 'cart#clearCart'
+  
+  get '/cart/:id', to: 'cart#add'
+  
+  get '/cart/remove/:id', to: 'cart#remove'
 
   devise_for :users
   resources :vinyls

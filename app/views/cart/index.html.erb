@@ -1,10 +1,12 @@
+<% provide(:title, 'Your Cart') %>
+
 <p id = "notice"><%= notice %></p>
 
 <div id = "itemsContainer">
     
     
     <% if @cart.empty? %>
-    <p>You need to have some products added to buy something</p>
+    <p>Your cart is empty! Why not add something?</p>
     <% end %>
     
     <table id = "customers">
@@ -13,7 +15,7 @@
         
         <% @cart.each do |id, quantity| %>
         
-        <% item = Item.find_by_id(id) %>
+        <% vinyl = Vinyl.find_by_id(id) %>
         
         <tr>
             
@@ -21,22 +23,23 @@
                 
                 <div class = "image">
                     
-                    <%= link_to (image_tag item.image_url, :style => "height: 40px"), item %>
+                    <%= link_to (image_tag vinyl.image_url, :style => "height: 40px"), vinyl %>
                     
                 </div>
                 
             </td>
             
-            <td class = "title"><%= link_to item.title, item %></td>
-            <td><a href = "/cart/remove/<%= item.id %>">Remove From Cart</a></td>
-            <td class = "price"><%= number_to_currency(item.price, :unit => "€") %></td>
+            <td class = "artist"><%= link_to vinyl.artist, vinyl %></td>
+            <td class = "title"><%= link_to vinyl.title, vinyl %></td>
+            <td><a href = "/cart/remove/<%= vinyl.id %>">Remove From Cart</a></td>
+            <td class = "price"><%= number_to_currency(vinyl.price, :unit => "€") %></td>
             <td class = "quantity"><%= quantity %></td>
-            <td class = "price"><%= number_to_currency(quantity * item.price, :unit => "€") %></td>
+            <td class = "price"><%= number_to_currency(quantity * vinyl.price, :unit => "€") %></td>
             
         </tr>
 
             <tr>
-            <%= total += quantity * item.price %>
+            <%= total += quantity * vinyl.price %>
              </tr>
         
         <% end %>
